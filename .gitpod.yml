@@ -2,14 +2,12 @@ image: condaforge/mambaforge:22.9.0-1
 
 # Commands to start on workspace startup
 tasks:
-  - name: install jupyter-notebook
-    init: mamba install -c anaconda jupyter
+  - name: install packages 
+    init: mamba install -c anaconda jupyter 
+    command: mamba install -c bioconda fastqc fastp kraken2 spades bowtie2 blast
   - name: install bash-notebook
     init: pip install bash_kernel
     command: python -m bash_kernel.install
-  - name: install packages
-    init: mamba create -n pre-processing -y -c bioconda fastqc fastp kraken2 
-    command: mamba create -n post-processing -c bioconda spades, bowtie2, blast
 
 vscode:
   extensions:
