@@ -3,13 +3,14 @@ image: condaforge/mambaforge:22.9.0-1
 # Commands to start on workspace startup
 tasks:
   - name: install packages 
-    before: conda config --add envs_dirs /workspace/Exercises-ECV/packages 
+    before: conda config --add envs_dirs /workspace/bin 
     init: mamba install -c anaconda jupyter
     command: mamba create -n dev -y -c bioconda fastqc fastp kraken2 spades bowtie2 blast
   - name: install bash-notebook
     init: pip install bash_kernel
     command: python -m bash_kernel.install
   - name: activating env
+    before: conda init
     init: conda activate dev
 
 vscode:
