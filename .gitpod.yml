@@ -1,15 +1,13 @@
 image: condaforge/mambaforge:22.9.0-1
 
-workspaceLocation: /workspace
-
 # Commands to start on workspace startup
 tasks:
   - name: install packages 
-    env: 
-      CONDA_PKGS_DIRS: /workspace/bin
+    # env: 
+    #   CONDA_PKGS_DIRS: /workspace/bin
     before: mamba install -c anaconda jupyter
-    init: mamba install -y -c bioconda fastqc fastp kraken2 spades bowtie2 blast
-    command:  export PATH="$HOME/bin:$PATH"
+#    init: mamba install -y -c bioconda fastqc fastp kraken2 spades bowtie2 blast
+#    command:  export PATH="$HOME/bin:$PATH"
   - name: install bash-notebook
     init: pip install bash_kernel
     command: python -m bash_kernel.install
