@@ -7,16 +7,10 @@ tasks:
   - name: install bash-notebook
     init: pip install bash_kernel
     command: python -m bash_kernel.install
-  - name: install fastqc
-    init: mamba install -c bioconda fastqc
-  - name: install fastp
-    init: mamba install -c bioconda fastp
-  - name: install kraken2 
-    init: mamba install -c bioconda kraken2
-  - name: install SPAdes
-    init: mamba install -c bioconda spades
-  - name: install bowtie2 
-    init: mamba install -c bowtie2
+  - name: install pre-processing
+    init: mamba create -n pre-processing -y -c bioconda fastqc fastp kraken2 
+  - name: install post-processing
+    init: mamba create -n post-processing -c bioconda spades, bowtie2, blast
 
 vscode:
   extensions:
