@@ -1,5 +1,22 @@
-image:
-  file: .gitpod.Dockerfile
+image: condaforge/mambaforge:22.9.0-1
+
+# Commands to start on workspace startup
+tasks:
+  - name: install jupyter-notebook
+    init: mamba install -c anaconda jupyter
+  - name: install bash-notebook
+    init: pip install bash_kernel
+    command: python -m bash_kernel.install
+  - name: install fastqc
+    init: mamba install -c bioconda fastqc
+  - name: install fastp
+    init: mamba install -c bioconda fastp
+  - name: install kraken2 
+    init: mamba install -c bioconda kraken2
+  - name: install SPAdes
+    init: mamba install -c bioconda spades
+  - name: install bowtie2 
+    init: mamba install -c bowtie2
 
 vscode:
   extensions:
