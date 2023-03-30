@@ -18,4 +18,4 @@ vscode:
     - mechatroner.rainbow-csv # Highlight columns in csv files in different colors
     - oderwat.indent-rainbow # Highlight indentation level
     - streetsidesoftware.code-spell-checker # Spelling checker for source code
-    - microsoft.jupyter
+    - ms-toolsai.jupyter
